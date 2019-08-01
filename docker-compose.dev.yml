@@ -1,0 +1,21 @@
+version: '3.5'
+
+services: 
+  lerno-front:
+    command: >
+        npm start
+    volumes: 
+      - ./front:/var/app
+      - /var/app/node_modules
+    ports: 
+      - "1234:1234"
+    
+  lerno-back:
+    command: >
+      npm run start:dev
+    ports: 
+      - "3030:3000"
+    volumes: 
+      - ./back:/var/app
+      - /var/app/node_modules
+    

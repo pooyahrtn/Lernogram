@@ -1,0 +1,30 @@
+version: '3.5'
+
+services: 
+  lerno-front:
+    container_name: lerno-front
+    build: 
+      context: ./front
+    expose: 
+      - "1234"
+    
+  lerno-back:
+    container_name: lerno-back
+    build: 
+      context: ./back
+    expose: 
+      - "3000"
+    env_file:
+      - .env
+  
+  lerno-postgre:
+    container_name: lerno-postgre
+    image: postgres:11.4
+    volumes:
+      - lerno_data:/var/lib/postgresql/data/
+    env_file: ./.env
+    expose: 
+      - "5432"
+
+volumes: 
+  lerno_data:
