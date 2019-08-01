@@ -1,0 +1,29 @@
+{
+  "name": "lernito",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Pooya Haratian",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test:eslint": "eslint src/ --ext .js --ext .jsx"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.2",
+    "babel-plugin-styled-components": "^1.10.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^6.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "flow-bin": "^0.104.0",
+    "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-content-loader": "^4.2.2",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.2"
+  }
+}
