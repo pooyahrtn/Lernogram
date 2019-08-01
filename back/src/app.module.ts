@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { FeedsModule } from './feeds/feeds.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersModule } from './users/users.module';
 import * as config from './config';
 
 @Module({
@@ -17,6 +18,7 @@ import * as config from './config';
       logging: true,
     }),
     FeedsModule,
+    UsersModule,
   ],
 })
 export class AppModule { }
