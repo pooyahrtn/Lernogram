@@ -1,7 +1,10 @@
 import { Module } from '@nestjs/common';
+import { GraphQLModule } from '@nestjs/graphql';
 import { FeedsModule } from './feeds/feeds.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
+import { join } from 'path';
+import { CommentsModule } from './comments/comments.module';
 import * as config from './config';
 
 @Module({
@@ -17,8 +20,12 @@ import * as config from './config';
       synchronize: true,
       logging: true,
     }),
+    GraphQLModule.forRoot({
+      autoSchemaFile: 'schema.gql',
+    }),
     FeedsModule,
     UsersModule,
+    CommentsModule,
   ],
 })
 export class AppModule { }

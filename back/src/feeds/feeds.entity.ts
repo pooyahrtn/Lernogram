@@ -1,7 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { User } from '../users/users.entity';
 
-
 @Entity()
 export class Feed {
     @PrimaryGeneratedColumn('uuid')
