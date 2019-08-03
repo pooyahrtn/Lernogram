@@ -21,6 +21,7 @@ type Feed {
   user: User!
   image: String!
   caption: String!
+  nComments: Float!
 }
 
 type Mutation {

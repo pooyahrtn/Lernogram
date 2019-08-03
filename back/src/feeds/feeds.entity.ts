@@ -23,4 +23,8 @@ export class Feed {
     @Field()
     @Column({ length: CAPTION_MAX_LENGTH, nullable: false })
     caption: string;
+
+    @Field()
+    @Column({ default: 0 })
+    nComments: number;
 }

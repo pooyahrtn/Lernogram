@@ -68,7 +68,7 @@ export default function FeedCard(props: Props) {
                 name: userName
             },
             caption,
-            n_comments
+            nComments
         },
         onCommendPressed
     } = props;
@@ -79,7 +79,7 @@ export default function FeedCard(props: Props) {
             </ImageContainer>
             <UserName>{userName}</UserName>
             <Caption>{caption}</Caption>
-            <Comment onClick={onCommendPressed}>{n_comments} comments (click to show)</Comment>
+            <Comment onClick={onCommendPressed}>{nComments} comments (click to show)</Comment>
         </Card>
     );
 }

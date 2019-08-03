@@ -33,4 +33,8 @@ export class FeedService {
     findOneById(id: string): Promise<Feed> {
         return this.feedRepository.findOne({ id });
     }
+
+    async updateNumberOfFeedComments(feed: Feed, nComments) {
+        return await this.feedRepository.update(feed, { nComments });
+    }
 }

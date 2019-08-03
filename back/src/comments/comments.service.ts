@@ -20,15 +20,14 @@ export class CommentsService {
         if (!feed) {
             throw new NotFoundException();
         }
-        const res = await this.commentRepository.find({
+        return await this.commentRepository.find({
             where: [
                 {
                     feed,
                 },
             ],
+            relations: ['user'],
         });
-        console.log(res);
-        return res;
     }
 
     async addComment(data: AddComentInput): Promise<Comment> {
@@ -43,12 +42,16 @@ export class CommentsService {
             throw new NotFoundException();
         }
 
-        const comment = await this.commentRepository.create({
+        const commentObject = await this.commentRepository.create({
             user,
             feed,
             ...commentData,
         });
 
-        return this.commentRepository.save(comment);
+        const comment = this.commentRepository.save(commentObject);
+
+        // race condition and ...
+        await this.feedService.updateNumberOfFeedComments(feed, feed.nComments + 1);
+        return comment;
     }
 }
