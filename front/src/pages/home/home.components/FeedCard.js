@@ -20,7 +20,6 @@ const Image = styled.img`
     width: 100%;
     height: auto;
     margin: auto 0;
-    margin-top: -25%;
 `
 
 const UserName = styled.h3`
