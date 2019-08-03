@@ -3,8 +3,36 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+input AddComentInput {
+  feedId: ID!
+  userId: ID!
+  comment: String!
+}
+
+type Comment {
+  id: ID!
+  feed: Feed!
+  user: User!
+  comment: String!
+}
+
+type Feed {
+  id: ID!
+  user: User!
+  image: String!
+  caption: String!
+}
+
 type Mutation {
+  addFeed(newFeedInput: NewFeedInput!): Feed!
   addUser(newUserData: NewUserInput!): User!
+  addComment(addCommentInput: AddComentInput!): Comment!
+}
+
+input NewFeedInput {
+  image: String!
+  userId: ID!
+  caption: String!
 }
 
 input NewUserInput {
@@ -12,7 +40,9 @@ input NewUserInput {
 }
 
 type Query {
+  feeds: [Feed!]!
   users: [User!]!
+  feedComments(feedId: String!): [Comment!]!
 }
 
 type User {

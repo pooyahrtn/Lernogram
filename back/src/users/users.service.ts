@@ -19,4 +19,8 @@ export class UserService {
         const user = this.userRepository.create(data);
         return this.userRepository.save(user);
     }
+
+    findById(id: string): Promise<User> {
+        return this.userRepository.findOne({ id });
+    }
 }
