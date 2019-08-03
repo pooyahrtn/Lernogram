@@ -11,7 +11,7 @@ services:
     
   lerno-back:
     command: >
-      npm run start:dev
+      npm run start:prod
     ports: 
       - "3030:3000"
     
