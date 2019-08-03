@@ -8,10 +8,16 @@ services:
       - "back_uri=http://134.209.202.175:3030/graphql"
     ports: 
       - "1234:1234"
+    restart: always
     
   lerno-back:
     command: >
       npm run start:prod
     ports: 
       - "3030:3000"
+    
+    restart: always
+
+  lerno-postgre:
+    restart: always
     
